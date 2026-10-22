@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#7C3AED">
+  <meta name="description" content="AdmitPro College Admission Portal - Manage student registrations, applications, documents, merit lists and admissions.">
+  <title>AdmitPro | College Admission Portal</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="app-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <div class="brand-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+        <div>
+          <h2>AdmitPro</h2>
+          <span>ADMISSION PORTAL</span>
+        </div>
+        <button class="icon-btn sidebar-close" id="sidebarClose" aria-label="Close navigation">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div class="sidebar-label">MAIN MENU</div>
+
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#dashboard" class="nav-link active" data-page="dashboard">
+          <i class="fa-solid fa-house"></i><span>Dashboard</span>
+        </a>
+        <a href="#register" class="nav-link" data-page="register">
+          <i class="fa-solid fa-user-plus"></i><span>Student Registration</span>
+        </a>
+        <a href="#application-form" class="nav-link" data-page="application-form">
+          <i class="fa-solid fa-file-circle-plus"></i><span>New Application</span>
+        </a>
+        <a href="#applications" class="nav-link" data-page="applications">
+          <i class="fa-solid fa-folder-open"></i><span>Applications</span>
+          <span class="nav-count" id="navApplicationCount">6</span>
+        </a>
+        <a href="#documents" class="nav-link" data-page="documents">
+          <i class="fa-solid fa-cloud-arrow-up"></i><span>Documents</span>
+        </a>
+        <a href="#review" class="nav-link" data-page="review">
+          <i class="fa-solid fa-clipboard-check"></i><span>Application Review</span>
+        </a>
+        <a href="#merit-list" class="nav-link" data-page="merit-list">
+          <i class="fa-solid fa-ranking-star"></i><span>Merit List</span>
+        </a>
+        <a href="#admission" class="nav-link" data-page="admission">
+          <i class="fa-solid fa-award"></i><span>Admission Confirmation</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-label">MANAGEMENT</div>
+
+      <nav class="nav-links" aria-label="Management navigation">
+        <a href="#courses" class="nav-link" data-page="courses">
+          <i class="fa-solid fa-book-open"></i><span>Courses</span>
+        </a>
+        <a href="#reports" class="nav-link" data-page="reports">
+          <i class="fa-solid fa-chart-pie"></i><span>Reports & Analytics</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="help-card">
+          <div class="help-icon"><i class="fa-solid fa-headset"></i></div>
+          <h4>Need assistance?</h4>
+          <p>Manage admissions with confidence.</p>
+          <a href="mailto:mail@freeinternships.in">Get Support <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <div class="profile-mini">
+          <div class="avatar avatar-purple">AD</div>
+          <div class="profile-info">
+            <strong id="sidebarUserName">Admission Admin</strong>
+            <span>Administrator</span>
+          </div>
+          <button class="icon-btn" id="logoutBtn" title="Sign out" aria-label="Sign out">
+            <i class="fa-solid fa-right-from-bracket"></i>
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- MAIN AREA -->
+    <main class="main-content">
+
+      <!-- TOP BAR -->
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="icon-btn menu-toggle" id="menuToggle" aria-label="Open navigation">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <div>
+            <div class="breadcrumb">Workspace <i class="fa-solid fa-chevron-right"></i> <span id="breadcrumbPage">Dashboard</span></div>
+            <h1 id="pageTitle">Dashboard Overview</h1>
+          </div>
+        </div>
+
+        <div class="topbar-actions">
+          <div class="session-label"><span class="online-dot"></span> Admission Session 2026–27</div>
+
+          <button class="icon-btn theme-toggle" id="themeToggle" title="Toggle dark mode" aria-label="Toggle dark mode">
+            <i class="fa-solid fa-moon"></i>
+          </button>
+
+          <button class="icon-btn notification-btn" id="notificationBtn" title="Notifications" aria-label="Notifications">
+            <i class="fa-regular fa-bell"></i>
+            <span class="notification-dot"></span>
+          </button>
+
+          <div class="topbar-avatar avatar avatar-purple">AD</div>
+        </div>
+      </header>
+
+      <!-- DASHBOARD -->
+      <section class="page-section active" id="dashboard" data-title="Dashboard Overview">
+        <div class="welcome-banner">
+          <div class="welcome-content">
+            <span class="eyebrow"><i class="fa-solid fa-sparkles"></i> ADMISSIONS AT A GLANCE</span>
+            <h2>Welcome to AdmitPro <span>👋</span></h2>
+            <p>Manage applications, review student profiles, and make every admission journey smoother.</p>
+            <button class="btn btn-white" data-go="applications">Explore Applications <i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+          <div class="welcome-graphic">
+            <div class="graphic-circle circle-one"></div>
+            <div class="graphic-circle circle-two"></div>
+            <div class="graduation-illustration"><i class="fa-solid fa-graduation-cap"></i></div>
+            <div class="floating-card float-card-one"><i class="fa-solid fa-check-circle"></i> Applications open</div>
+            <div class="floating-card float-card-two"><i class="fa-solid fa-star"></i> Your future starts here</div>
+          </div>
+        </div>
+
+        <div class="section-heading">
+          <div><h3>Admission Overview</h3><p>Here is what's happening with your admissions.</p></div>
+          <button class="btn btn-outline" id="refreshDashboard"><i class="fa-solid fa-rotate"></i> Refresh</button>
+        </div>
+
+        <div class="stats-grid">
+          <article class="stat-card">
+            <div class="stat-top"><span>Total Applications</span><div class="stat-icon purple-soft"><i class="fa-solid fa-file-lines"></i></div></div>
+            <h2 id="statTotal">06</h2>
+            <div class="stat-foot"><span class="trend-up"><i class="fa-solid fa-arrow-trend-up"></i> Live count</span><span>All applications</span></div>
+          </article>
+          <article class="stat-card">
+            <div class="stat-top"><span>Under Review</span><div class="stat-icon blue-soft"><i class="fa-solid fa-magnifying-glass"></i></div></div>
+            <h2 id="statReview">02</h2>
+            <div class="stat-foot"><span class="stat-neutral">Pending action</span><span>Needs attention</span></div>
+          </article>
+          <article class="stat-card">
+            <div class="stat-top"><span>Shortlisted</span><div class="stat-icon orange-soft"><i class="fa-solid fa-star"></i></div></div>
+            <h2 id="statShortlisted">01</h2>
+            <div class="stat-foot"><span class="trend-up">Merit eligible</span><span>Selected candidates</span></div>
+          </article>
+          <article class="stat-card">
+            <div class="stat-top"><span>Admitted Students</span><div class="stat-icon green-soft"><i class="fa-solid fa-user-check"></i></div></div>
+            <h2 id="statAdmitted">01</h2>
+            <div class="stat-foot"><span class="trend-up">Confirmed</span><span>Enrolled students</span></div>
+          </article>
+        </div>
+
+        <div class="dashboard-grid">
+          <article class="panel applications-panel">
+            <div class="panel-heading">
+              <div><h3>Recent Applications</h3><p>Latest student application activity</p></div>
+              <button class="btn btn-text" data-go="applications">View all <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+            <div class="table-wrapper">
+              <table>
+                <thead><tr><th>STUDENT</th><th>COURSE</th><th>DATE</th><th>STATUS</th></tr></thead>
+                <tbody id="recentApplicationsBody"></tbody>
+              </table>
+            </div>
+          </article>
+
+          <article class="panel course-panel">
+            <div class="panel-heading"><div><h3>Course Distribution</h3><p>Applications by course</p></div></div>
+            <div id="courseDistribution" class="course-distribution"></div>
+            <button class="btn btn-outline btn-full" data-go="courses">View All Courses <i class="fa-solid fa-arrow-right"></i></button>
+          </article>
+        </div>
+
+        <div class="dashboard-grid lower-grid">
+          <article class="panel">
+            <div class="panel-heading"><div><h3>Admission Progress</h3><p>Application status breakdown</p></div></div>
+            <div id="statusOverview" class="status-overview"></div>
+          </article>
+          <article class="panel quick-actions-panel">
+            <div class="panel-heading"><div><h3>Quick Actions</h3><p>Common admission tasks</p></div></div>
+            <div class="quick-actions">
+              <button class="quick-action" data-go="register"><span class="quick-icon purple-soft"><i class="fa-solid fa-user-plus"></i></span><span><strong>Register Student</strong><small>Add a new applicant</small></span><i class="fa-solid fa-chevron-right"></i></button>
+              <button class="quick-action" data-go="application-form"><span class="quick-icon blue-soft"><i class="fa-solid fa-file-circle-plus"></i></span><span><strong>New Application</strong><small>Start an application</small></span><i class="fa-solid fa-chevron-right"></i></button>
+              <button class="quick-action" data-go="merit-list"><span class="quick-icon orange-soft"><i class="fa-solid fa-ranking-star"></i></span><span><strong>Generate Merit List</strong><small>Rank by academic scores</small></span><i class="fa-solid fa-chevron-right"></i></button>
+              <button class="quick-action" data-go="reports"><span class="quick-icon green-soft"><i class="fa-solid fa-chart-column"></i></span><span><strong>View Reports</strong><small>Explore admission analytics</small></span><i class="fa-solid fa-chevron-right"></i></button>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- STUDENT REGISTRATION -->
+      <section class="page-section" id="register" data-title="Student Registration">
+        <div class="page-intro">
+          <div><span class="eyebrow purple-text">STUDENT MANAGEMENT</span><h2>Student Registration</h2><p>Register a prospective student with personal and contact information.</p></div>
+          <div class="intro-icon"><i class="fa-solid fa-user-plus"></i></div>
+        </div>
+
+        <form id="registrationForm" class="panel form-panel">
+          <div class="form-section-title"><span class="number-circle">01</span><div><h3>Personal Information</h3><p>Enter the student's basic details.</p></div></div>
+          <div class="form-grid">
+            <div class="form-group"><label for="regName">Full Name <span>*</span></label><input id="regName" name="name" type="text" placeholder="Enter full name" required maxlength="100"></div>
+            <div class="form-group"><label for="regEmail">Email Address <span>*</span></label><input id="regEmail" name="email" type="email" placeholder="student@example.com" required></div>
+            <div class="form-group"><label for="regPhone">Phone Number <span>*</span></label><input id="regPhone" name="phone" type="tel" placeholder="+91 98765 43210" required></div>
+            <div class="form-group"><label for="regDob">Date of Birth <span>*</span></label><input id="regDob" name="dob" type="date" required></div>
+            <div class="form-group"><label for="regGender">Gender</label><select id="regGender" name="gender"><option value="">Select gender</option><option>Female</option><option>Male</option><option>Other</option><option>Prefer not to say</option></select></div>
+            <div class="form-group"><label for="regCity">City</label><input id="regCity" name="city" type="text" placeholder="Enter city"></div>
+            <div class="form-group full-width"><label for="regAddress">Full Address</label><textarea id="regAddress" name="address" rows="3" placeholder="Enter residential address"></textarea></div>
+          </div>
+
+          <div class="form-section-title section-spaced"><span class="number-circle">02</span><div><h3>Academic Information</h3><p>Capture the student's latest academic details.</p></div></div>
+          <div class="form-grid">
+            <div class="form-group"><label for="regQualification">Last Qualification <span>*</span></label><select id="regQualification" name="qualification" required><option value="">Select qualification</option><option>Class 10</option><option>Class 12</option><option>Diploma</option><option>Graduation</option></select></div>
+            <div class="form-group"><label for="regScore">Academic Percentage <span>*</span></label><input id="regScore" name="score" type="number" min="0" max="100" step="0.01" placeholder="e.g. 85.5" required></div>
+            <div class="form-group"><label for="regCourse">Interested Course <span>*</span></label><select id="regCourse" name="course" required class="course-select"><option value="">Select a course</option><option>B.Tech Computer Science</option><option>B.Tech Electronics & Communication</option><option>B.Tech Mechanical Engineering</option><option>B.Tech Civil Engineering</option><option>MBA (Business Administration)</option><option>B.Sc Computer Science</option></select></div>
+          </div>
+
+          <div class="form-footer"><span class="required-note"><span>*</span> Required fields</span><div class="button-group"><button type="reset" class="btn btn-outline">Reset Form</button><button type="submit" class="btn btn-primary"><i class="fa-solid fa-user-check"></i> Register Student</button></div></div>
+        </form>
+      </section>
+
+      <!-- MULTI-STEP APPLICATION -->
+      <section class="page-section" id="application-form" data-title="New Application">
+        <div class="page-intro">
+          <div><span class="eyebrow purple-text">ONLINE ADMISSIONS</span><h2>New Application</h2><p>Complete the application in three simple steps.</p></div>
+          <div class="intro-icon"><i class="fa-solid fa-file-circle-plus"></i></div>
+        </div>
+
+        <div class="panel wizard-panel">
+          <div class="wizard-steps">
+            <div class="wizard-step active" data-step-indicator="1"><span>1</span><div><strong>Student Details</strong><small>Personal information</small></div></div>
+            <div class="wizard-line"></div>
+            <div class="wizard-step" data-step-indicator="2"><span>2</span><div><strong>Course & Scores</strong><small>Academic information</small></div></div>
+            <div class="wizard-line"></div>
+            <div class="wizard-step" data-step-indicator="3"><span>3</span><div><strong>Documents</strong><small>Review & submit</small></div></div>
+          </div>
+
+          <form id="applicationForm">
+            <div class="wizard-page active" data-step="1">
+              <div class="form-section-title"><span class="number-circle">01</span><div><h3>Applicant Details</h3><p>Tell us who is applying for admission.</p></div></div>
+              <div class="form-grid">
+                <div class="form-group"><label for="appName">Full Name <span>*</span></label><input id="appName" name="name" required placeholder="As per official documents"></div>
+                <div class="form-group"><label for="appEmail">Email Address <span>*</span></label><input id="appEmail" name="email" type="email" required placeholder="student@example.com"></div>
+                <div class="form-group"><label for="appPhone">Phone Number <span>*</span></label><input id="appPhone" name="phone" type="tel" required placeholder="+91 98765 43210"></div>
+                <div class="form-group"><label for="appDob">Date of Birth <span>*</span></label><input id="appDob" name="dob" type="date" required></div>
+                <div class="form-group"><label for="appGender">Gender</label><select id="appGender" name="gender"><option value="">Select gender</option><option>Female</option><option>Male</option><option>Other</option><option>Prefer not to say</option></select></div>
+                <div class="form-group"><label for="appCity">City</label><input id="appCity" name="city" placeholder="Enter city"></div>
+                <div class="form-group full-width"><label for="appAddress">Residential Address</label><textarea id="appAddress" name="address" rows="2" placeholder="Enter your address"></textarea></div>
+              </div>
+            </div>
+
+            <div class="wizard-page" data-step="2">
+              <div class="form-section-title"><span class="number-circle">02</span><div><h3>Course & Academic Details</h3><p>Choose your preferred course and enter your scores.</p></div></div>
+              <div class="form-grid">
+                <div class="form-group full-width"><label for="appCourse">Preferred Course <span>*</span></label><select id="appCourse" name="course" class="course-select" required><option value="">Choose your course</option><option>B.Tech Computer Science</option><option>B.Tech Electronics & Communication</option><option>B.Tech Mechanical Engineering</option><option>B.Tech Civil Engineering</option><option>MBA (Business Administration)</option><option>B.Sc Computer Science</option></select></div>
+                <div class="form-group"><label for="appQualification">Last Qualification <span>*</span></label><select id="appQualification" name="qualification" required><option value="">Select qualification</option><option>Class 10</option><option>Class 12</option><option>Diploma</option><option>Graduation</option></select></div>
+                <div class="form-group"><label for="appPercentage">Academic Percentage <span>*</span></label><input id="appPercentage" name="score" type="number" min="0" max="100" step="0.01" required placeholder="0–100"></div>
+                <div class="form-group"><label for="appEntrance">Entrance Exam Score</label><input id="appEntrance" name="entranceScore" type="number" min="0" max="100" step="0.01" placeholder="0–100 (if applicable)"></div>
+                <div class="form-group"><label for="appYear">Admission Session</label><input id="appYear" name="session" value="2026–27" readonly></div>
+              </div>
+              <div class="info-banner"><i class="fa-solid fa-circle-info"></i><p>Ensure that your academic scores match your official marksheets. Incorrect information may affect application review.</p></div>
+            </div>
+
+            <div class="wizard-page" data-step="3">
+              <div class="form-section-title"><span class="number-circle">03</span><div><h3>Documents & Declaration</h3><p>Attach the required documents and review your application.</p></div></div>
+              <div class="document-upload-grid">
+                <div class="upload-card"><i class="fa-regular fa-image"></i><strong>Passport Size Photo</strong><small>JPG or PNG</small><input type="file" name="photo" id="docPhoto" accept="image/*"><label for="docPhoto" class="btn btn-outline btn-small">Choose File</label><span class="file-name" data-file-name="docPhoto">No file chosen</span></div>
+                <div class="upload-card"><i class="fa-solid fa-signature"></i><strong>Signature</strong><small>JPG or PNG</small><input type="file" name="signature" id="docSignature" accept="image/*"><label for="docSignature" class="btn btn-outline btn-small">Choose File</label><span class="file-name" data-file-name="docSignature">No file chosen</span></div>
+                <div class="upload-card"><i class="fa-solid fa-file-pdf"></i><strong>10th Marksheet</strong><small>PDF or image</small><input type="file" name="marksheet10" id="doc10" accept=".pdf,image/*"><label for="doc10" class="btn btn-outline btn-small">Choose File</label><span class="file-name" data-file-name="doc10">No file chosen</span></div>
+                <div class="upload-card"><i class="fa-solid fa-file-lines"></i><strong>12th Marksheet</strong><small>PDF or image</small><input type="file" name="marksheet12" id="doc12" accept=".pdf,image/*"><label for="doc12" class="btn btn-outline btn-small">Choose File</label><span class="file-name" data-file-name="doc12">No file chosen</span></div>
+                <div class="upload-card"><i class="fa-solid fa-file-circle-check"></i><strong>Transfer Certificate</strong><small>PDF or image</small><input type="file" name="transferCertificate" id="docTC" accept=".pdf,image/*"><label for="docTC" class="btn btn-outline btn-small">Choose File</label><span class="file-name" data-file-name="docTC">No file chosen</span></div>
+                <div class="upload-card"><i class="fa-solid fa-id-card"></i><strong>Identity Proof</strong><small>PDF or image</small><input type="file" name="identityProof" id="docID" accept=".pdf,image/*"><label for="docID" class="btn btn-outline btn-small">Choose File</label><span class="file-name" data-file-name="docID">No file chosen</span></div>
+              </div>
+              <div class="application-summary" id="applicationSummary"><h4><i class="fa-solid fa-clipboard-list"></i> Application Summary</h4><p>Complete the previous steps to review your details.</p></div>
+              <label class="checkbox-label"><input type="checkbox" id="appDeclaration" required><span>I confirm that the information provided is accurate and complete to the best of my knowledge.</span></label>
+              <div class="info-banner"><i class="fa-solid fa-shield-halved"></i><p>This frontend demo simulates document selection. Files are not uploaded to a server. Avoid using sensitive real identity documents in this demo.</p></div>
+            </div>
+
+            <div class="wizard-footer"><button type="button" class="btn btn-outline" id="prevStep" disabled><i class="fa-solid fa-arrow-left"></i> Previous</button><span class="step-counter" id="stepCounter">Step 1 of 3</span><button type="button" class="btn btn-primary" id="nextStep">Continue <i class="fa-solid fa-arrow-right"></i></button><button type="submit" class="btn btn-primary hidden" id="submitApplication"><i class="fa-solid fa-paper-plane"></i> Submit Application</button></div>
+          </form>
+        </div>
+      </section>
+
+      <!-- APPLICATION LISTING -->
+      <section class="page-section" id="applications" data-title="Applications">
+        <div class="page-intro">
+          <div><span class="eyebrow purple-text">APPLICATION MANAGEMENT</span><h2>All Applications</h2><p>Search, filter and manage college admission applications.</p></div>
+          <button class="btn btn-primary" data-go="application-form"><i class="fa-solid fa-plus"></i> New Application</button>
+        </div>
+
+        <div class="stats-grid compact-stats">
+          <article class="stat-card mini-stat"><span>Total Applications</span><strong id="listTotal">06</strong></article>
+          <article class="stat-card mini-stat"><span>Submitted</span><strong id="listSubmitted">01</strong></article>
+          <article class="stat-card mini-stat"><span>Under Review</span><strong id="listReview">02</strong></article>
+          <article class="stat-card mini-stat"><span>Admitted</span><strong id="listAdmitted">01</strong></article>
+        </div>
+
+        <div class="panel">
+          <div class="filter-toolbar">
+            <div class="search-box"><i class="fa-solid fa-magnifying-glass"></i><input id="applicationSearch" type="search" placeholder="Search name, email or application ID..."></div>
+            <select id="statusFilter" aria-label="Filter by status"><option value="">All Statuses</option><option>Submitted</option><option>Under Review</option><option>Shortlisted</option><option>Merit List</option><option>Admitted</option><option>Rejected</option></select>
+            <select id="courseFilter" aria-label="Filter by course"><option value="">All Courses</option><option>B.Tech Computer Science</option><option>B.Tech Electronics & Communication</option><option>B.Tech Mechanical Engineering</option><option>B.Tech Civil Engineering</option><option>MBA (Business Administration)</option><option>B.Sc Computer Science</option></select>
+            <input id="dateFilter" type="date" aria-label="Filter by application date">
+            <button class="btn btn-outline" id="clearFilters"><i class="fa-solid fa-filter-circle-xmark"></i> Clear</button>
+          </div>
+
+          <div class="table-wrapper">
+            <table class="data-table">
+              <thead><tr><th>APPLICATION ID</th><th>STUDENT</th><th>COURSE</th><th>ACADEMIC SCORE</th><th>APPLIED ON</th><th>STATUS</th><th>ACTION</th></tr></thead>
+              <tbody id="applicationsTableBody"></tbody>
+            </table>
+          </div>
+          <div class="table-footer"><span id="tableResultCount">Showing applications</span><span>Admission Session 2026–27</span></div>
+        </div>
+      </section>
+
+      <!-- APPLICATION DETAIL -->
+      <section class="page-section" id="application-detail" data-title="Application Details">
+        <div class="page-intro"><div><span class="eyebrow purple-text">APPLICANT PROFILE</span><h2>Application Details</h2><p>View applicant information, scores, documents and application status.</p></div><button class="btn btn-outline" data-go="applications"><i class="fa-solid fa-arrow-left"></i> Back to Applications</button></div>
+        <div id="applicationDetailContent" class="detail-layout"><div class="panel empty-state"><i class="fa-solid fa-file-circle-question"></i><h3>No application selected</h3><p>Choose an application from the listing to see its complete details.</p><button class="btn btn-primary" data-go="applications">Browse Applications</button></div></div>
+      </section>
+
+      <!-- DOCUMENTS -->
+      <section class="page-section" id="documents" data-title="Document Management">
+        <div class="page-intro"><div><span class="eyebrow purple-text">DOCUMENT CENTRE</span><h2>Document Management</h2><p>Track required documents and their verification status.</p></div><div class="intro-icon"><i class="fa-solid fa-cloud-arrow-up"></i></div></div>
+        <div class="info-banner"><i class="fa-solid fa-circle-info"></i><p>This is a frontend-only demonstration. Selected files are not transmitted to a server. Document records show simulated verification status.</p></div>
+        <div class="panel">
+          <div class="filter-toolbar"><div class="search-box"><i class="fa-solid fa-magnifying-glass"></i><input id="documentSearch" type="search" placeholder="Search student or document..."></div><select id="documentStatusFilter" aria-label="Filter document status"><option value="">All Documents</option><option>Pending</option><option>Verified</option><option>Missing</option></select></div>
+          <div class="table-wrapper"><table class="data-table"><thead><tr><th>STUDENT</th><th>DOCUMENT</th><th>APPLICATION ID</th><th>UPLOAD DATE</th><th>STATUS</th><th>ACTION</th></tr></thead><tbody id="documentsTableBody"></tbody></table></div>
+        </div>
+      </section>
+
+      <!-- APPLICATION REVIEW -->
+      <section class="page-section" id="review" data-title="Application Review">
+        <div class="page-intro"><div><span class="eyebrow purple-text">ADMISSION COMMITTEE</span><h2>Application Review</h2><p>Review applicant eligibility and record approval decisions.</p></div><div class="intro-icon"><i class="fa-solid fa-clipboard-check"></i></div></div>
+        <div class="info-banner"><i class="fa-solid fa-circle-info"></i><p>Open an application to inspect its details. Approval and rejection actions update the local demo data.</p></div>
+        <div id="reviewCards" class="review-grid"></div>
+      </section>
+
+      <!-- MERIT LIST -->
+      <section class="page-section" id="merit-list" data-title="Merit List">
+        <div class="page-intro"><div><span class="eyebrow purple-text">ACADEMIC EXCELLENCE</span><h2>Merit List Generation</h2><p>Rank eligible applicants using their academic and entrance exam scores.</p></div><div class="intro-icon"><i class="fa-solid fa-ranking-star"></i></div></div>
+        <div class="panel merit-controls">
+          <div class="form-group"><label for="meritCourseFilter">Select Course</label><select id="meritCourseFilter"><option value="">All Courses</option><option>B.Tech Computer Science</option><option>B.Tech Electronics & Communication</option><option>B.Tech Mechanical Engineering</option><option>B.Tech Civil Engineering</option><option>MBA (Business Administration)</option><option>B.Sc Computer Science</option></select></div>
+          <div class="form-group"><label for="meritCutoff">Minimum Academic Percentage</label><input id="meritCutoff" type="number" min="0" max="100" value="50"></div>
+          <button class="btn btn-primary" id="generateMerit"><i class="fa-solid fa-wand-magic-sparkles"></i> Generate Merit List</button>
+          <button class="btn btn-outline" id="exportMerit"><i class="fa-solid fa-download"></i> Export CSV</button>
+        </div>
+        <div class="merit-banner"><div class="merit-banner-icon"><i class="fa-solid fa-trophy"></i></div><div><h3>Merit-Based Admissions</h3><p>Eligible applicants are ranked by their academic percentage and entrance score. This simulated ranking does not replace official admission criteria.</p></div></div>
+        <div class="panel"><div class="panel-heading"><div><h3>Generated Rankings</h3><p id="meritDescription">Generate a merit list to view eligible candidates.</p></div><span class="pill pill-purple" id="meritCount">0 Candidates</span></div><div class="table-wrapper"><table class="data-table"><thead><tr><th>RANK</th><th>STUDENT</th><th>APPLICATION ID</th><th>COURSE</th><th>ACADEMIC SCORE</th><th>ENTRANCE SCORE</th><th>STATUS</th></tr></thead><tbody id="meritTableBody"></tbody></table></div></div>
+      </section>
+
+      <!-- ADMISSION CONFIRMATION -->
+      <section class="page-section" id="admission" data-title="Admission Confirmation">
+        <div class="page-intro"><div><span class="eyebrow purple-text">ENROLLMENT CENTRE</span><h2>Admission Confirmation</h2><p>Confirm eligible admissions and prepare printable admission letters.</p></div><div class="intro-icon"><i class="fa-solid fa-award"></i></div></div>
+        <div class="info-banner"><i class="fa-solid fa-circle-info"></i><p>Only shortlisted or merit-listed applicants should be considered for confirmation in this demo. Follow your institution's actual admission policy in real use.</p></div>
+        <div class="panel"><div class="filter-toolbar"><div class="search-box"><i class="fa-solid fa-magnifying-glass"></i><input id="admissionSearch" type="search" placeholder="Search applicant..."></div><select id="admissionStatusFilter"><option value="">All Statuses</option><option>Shortlisted</option><option>Merit List</option><option>Admitted</option></select></div><div class="table-wrapper"><table class="data-table"><thead><tr><th>STUDENT</th><th>APPLICATION ID</th><th>COURSE</th><th>SCORE</th><th>STATUS</th><th>ACTION</th></tr></thead><tbody id="admissionTableBody"></tbody></table></div></div>
+      </section>
+
+      <!-- COURSES -->
+      <section class="page-section" id="courses" data-title="Available Courses">
+        <div class="page-intro"><div><span class="eyebrow purple-text">ACADEMIC PROGRAMMES</span><h2>Available Courses</h2><p>Explore programmes offered for the 2026–27 admission session.</p></div><div class="intro-icon"><i class="fa-solid fa-book-open"></i></div></div>
+        <div class="course-cards-grid" id="courseCards"></div>
+      </section>
+
+      <!-- REPORTS -->
+      <section class="page-section" id="reports" data-title="Reports & Analytics">
+        <div class="page-intro"><div><span class="eyebrow purple-text">DATA & INSIGHTS</span><h2>Reports & Analytics</h2><p>Review application trends, course demand and admission outcomes.</p></div><button class="btn btn-primary" id="exportReport"><i class="fa-solid fa-file-csv"></i> Export CSV</button></div>
+        <div class="stats-grid">
+          <article class="stat-card"><div class="stat-top"><span>Total Applicants</span><div class="stat-icon purple-soft"><i class="fa-solid fa-users"></i></div></div><h2 id="reportTotal">06</h2><div class="stat-foot"><span>All applications</span></div></article>
+          <article class="stat-card"><div class="stat-top"><span>Average Academic Score</span><div class="stat-icon blue-soft"><i class="fa-solid fa-chart-line"></i></div></div><h2 id="reportAverage">--%</h2><div class="stat-foot"><span>Among applicants</span></div></article>
+          <article class="stat-card"><div class="stat-top"><span>Admission Rate</span><div class="stat-icon green-soft"><i class="fa-solid fa-chart-pie"></i></div></div><h2 id="reportRate">--%</h2><div class="stat-foot"><span>Confirmed admissions</span></div></article>
+          <article class="stat-card"><div class="stat-top"><span>Courses Offered</span><div class="stat-icon orange-soft"><i class="fa-solid fa-book"></i></div></div><h2>06</h2><div class="stat-foot"><span>Academic programmes</span></div></article>
+        </div>
+        <div class="dashboard-grid">
+          <article class="panel"><div class="panel-heading"><div><h3>Course-wise Applications</h3><p>Application count by programme</p></div></div><div id="reportCourseChart" class="report-chart"></div></article>
+          <article class="panel"><div class="panel-heading"><div><h3>Application Status</h3><p>Current distribution of applications</p></div></div><div id="reportStatusChart" class="report-status-chart"></div></article>
+        </div>
+        <div class="panel report-table-panel"><div class="panel-heading"><div><h3>Demographic & Course Report</h3><p>Application summary by course and gender</p></div></div><div class="table-wrapper"><table class="data-table"><thead><tr><th>COURSE</th><th>TOTAL APPLICANTS</th><th>FEMALE</th><th>MALE</th><th>AVERAGE SCORE</th><th>ADMITTED</th></tr></thead><tbody id="reportTableBody"></tbody></table></div></div>
+      </section>
+
+      <!-- AUTHENTICATION MODAL -->
+      <div class="modal-backdrop hidden" id="authModal" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+        <div class="modal auth-modal">
+          <button class="icon-btn modal-close" data-close-modal aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+          <div class="auth-logo"><i class="fa-solid fa-graduation-cap"></i></div>
+          <h2 id="authTitle">Welcome to AdmitPro</h2>
+          <p class="modal-description">Sign in to the simulated admission administrator account.</p>
+          <form id="loginForm">
+            <div class="form-group"><label for="loginEmail">Email Address</label><input id="loginEmail" type="email" required placeholder="admin@admitpro.demo" value="admin@admitpro.demo"></div>
+            <div class="form-group"><label for="loginPassword">Password</label><input id="loginPassword" type="password" required placeholder="Enter demo password" value="admin123"></div>
+            <button class="btn btn-primary btn-full" type="submit">Sign In <i class="fa-solid fa-arrow-right"></i></button>
+          </form>
+          <p class="auth-note">Demo only: authentication is simulated in your browser. Do not use real passwords.</p>
+        </div>
+      </div>
+
+      <!-- DETAIL / CONFIRMATION MODAL -->
+      <div class="modal-backdrop hidden" id="actionModal" role="dialog" aria-modal="true" aria-labelledby="actionModalTitle">
+        <div class="modal">
+          <button class="icon-btn modal-close" data-close-modal aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+          <h2 id="actionModalTitle">Application Action</h2>
+          <div id="actionModalBody"></div>
+        </div>
+      </div>
+
+      <!-- TOAST -->
+      <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+      <!-- FOOTER -->
+      <footer class="app-footer">
+        <div><span class="footer-logo"><i class="fa-solid fa-graduation-cap"></i> AdmitPro</span><span>College Admission Management Portal</span></div>
+        <span>WD-COL-004 · DAS-COL-004 · Academic Session 2026–27</span>
+      </footer>
+
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
